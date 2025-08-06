@@ -1,0 +1,59 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+out/
+coverage/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm/
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variables file
+.env
+.env.*.local
+
+# VSCode settings
+.vscode/
+
+# Mac system files
+.DS_Store
+
+# Parcel cache
+.cache/
+
+# SvelteKit output
+.svelte-kit/
+
+# Next.js build output
+.next/
+
+# Nuxt.js build output
+.nuxt/
+
+# Storybook build output
+storybook-static/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# IDE files
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Test coverage
+coverage/
