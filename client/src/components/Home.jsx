@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { getStuList } from "../api/stuApi";
+import Alert from "./Alert";
+import { useLocation,NavLink } from "react-router-dom";
 
 function Home() {
   const [searchValue, setSearchValue] = useState("");
   const [stuList, setStuList] = useState([]);
+  const [alert, setAlert] = useState(null);
+
+  const location = useLocation();
+
 
   const handleChange = (e) => {
     setSearchValue(e.target.value);
@@ -16,19 +22,30 @@ function Home() {
     });
   }, []);
 
+  useEffect(() => {
+    if(location.state) {
+      setAlert(location.state);
+    }
+  },[location])
+
+  const showAlert = alert ? <Alert {...alert} /> : null;
+
   const trs = stuList.map((item) => {
     return (
       <tr key={item.id}>
         <td>{item.name}</td>
         <td>{item.age}</td>
         <td>{item.phone}</td>
-        <td>详情</td>
+        <td>
+          <NavLink to={`/detail/${item.id}`}>详情</NavLink>
+        </td>
       </tr>
     );
   });
 
   return (
     <div>
+       {showAlert}
       <h1>学生列表</h1>
       {/* 搜索框 */}
       <input
